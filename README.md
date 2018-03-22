@@ -1,6 +1,6 @@
 # `geofacet_ARG` 
 
-Templates para creación de gráficos de data *georeferenciada* a partir de grilla de Argentina (geofacet). 
+Templates para creación de gráficos de data *georeferenciada* (`geofacet`). 
 --------------------
 
 Este repositorio incluye una serie de archivos que sirven de ejemplo de cómo se puede utilizar [geofacet](http://ryanhafen.com/blog/geofacet) para la creación de grillas de gráficos con un diseño que replica un mapa (de Argentina, en este caso). 
