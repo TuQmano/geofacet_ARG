@@ -2,14 +2,10 @@
 -----
 
 
-**Grila:**
+En el ejemplo de `geofacet` para la provincia de Córdoba graficamos el cambio en la cantidad de electores de cada departamento. Este repositorio cuenta con varios archivos. Entre ellos: 
 
-`mygrid <- data.frame(
-  name = c("Sobremonte", "Río Seco", "Ischilin", "Cruz del Eje", "Totoral", "Tulumba", "San Justo", "Minas", "Punilla", "Colón", "Río Primero", "Pocho", "San Alberto", "Capital", "Río Segundo", "General San Martín", "Santa María", "San Javier", "Calamuchita", "Unión", "Marcos Juárez", "Río Cuarto", "Tercero Arriba", "Juárez Celman", "General Roca", "Roque Sáenz Peña"),
-  code = c("Sobremonte", "Río Seco", "Ischilin", "Cruz del Eje", "Totoral", "Tulumba", "San Justo", "Minas", "Punilla", "Colón", "Río Primero", "Pocho", "San Alberto", "Capital", "Río Segundo", "General San Martín", "Santa María", "San Javier", "Calamuchita", "Unión", "Marcos Juárez", "Río Cuarto", "Tercero Arriba", "Juárez Celman", "General Roca", "Roque Sáenz Peña"),
-  row = c(1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 6, 6, 7, 7, 8),
-  col = c(3, 4, 2, 1, 3, 4, 5, 1, 2, 3, 4, 1, 2, 3, 4, 4, 3, 1, 2, 5, 6, 2, 3, 3, 2, 3),
-  stringsAsFactors = FALSE
-)
-geofacet::grid_preview(mygrid)`
+* `Electores por Circuito acumulados 2007 - 2017 Córdoba.xlsx`:  contiene data departamental disponible en el portal de [Datos Abiertos de la Municipalidad de Córdoba](https://gobiernoabierto.cordoba.gob.ar/data/datos-abiertos/categoria/elecciones-provinciales/electores-por-circuito-en-la-provincia-de-cordoba/216). Gracias a [Andrés Vázquez](https://twitter.com/avdata99) por la información. 
+
+* Un script de **R** ([`Cordoba_geofacet`](https://github.com/TuQmano/geofacet_ARG/blob/master/CORDOBA/Cordoba_geofacet.R))con el código que incluye el mapa-grilla, la manipulación de los datos y la generación del [plot](https://github.com/TuQmano/geofacet_ARG/blob/master/CORDOBA/CORDOBA_geofacet_Electores.png).
+
 
