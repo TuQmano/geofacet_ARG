@@ -22,8 +22,6 @@ library(readxl)
 library(dplyr)
 library(plyr)
 library(geofacet) # <--- geofacet
-library(Unicode)
-
 
 ################################################### CARGA DE BASE DE DATOS A VISAULIZAR
 
@@ -44,10 +42,10 @@ colnames(electores.cordoba) <- c("name", "elec.2007", "elec.2011", "elec.2013", 
 
 # nuevas variables -> variación de electores entre comicios
 attach(electores.cordoba)
-electores.cordoba$cambio_2011 <- (elec.2011 - elec.2007)/elec.2011*100
-electores.cordoba$cambio_2013 <- (elec.2013 - elec.2011)/elec.2013*100
-electores.cordoba$cambio_2015 <- (elec.2015 - elec.2013)/elec.2015*100
-electores.cordoba$cambio_2017 <- (elec.2017 - elec.2015)/elec.2017*100
+electores.cordoba$cambio_2011 <- (elec.2011 - elec.2007)/elec.2007*100
+electores.cordoba$cambio_2013 <- (elec.2013 - elec.2011)/elec.2011*100
+electores.cordoba$cambio_2015 <- (elec.2015 - elec.2013)/elec.2013*100
+electores.cordoba$cambio_2017 <- (elec.2017 - elec.2015)/elec.2015*100
 detach(electores.cordoba)
 
 #elijo nuevas variables
