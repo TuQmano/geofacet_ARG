@@ -7,5 +7,5 @@ _"El paquete geofacet amplía `ggplot2` de una manera que facilita la creación 
 Este repositorio incluye una serie de ejemplos de cómo se puede utilizar `geofacet` para la creación de grillas de gráficos con un diseño que replica un mapa de entidades de Argentina. Una buena explicación de cuáles son las ventajas de esta técnica está disponible en el post del [blog del creador](http://ryanhafen.com/blog/geofacet) de esta herramienta.
 
 ## Ejempplos
-En este repositorio podemos enoctrar ejemplos de [`ARGENTINA`](https://github.com/TuQmano/geofacet_ARG/tree/master/ARGENTINA), [`CABA`](https://github.com/TuQmano/geofacet_ARG/tree/master/CABA) y [`TUCUMÁN`](https://github.com/TuQmano/geofacet_ARG/tree/master/TUCUMAN).
+En este repositorio podemos enoctrar ejemplos de [`ARGENTINA`](https://github.com/TuQmano/geofacet_ARG/tree/master/ARGENTINA), [`CABA`](https://github.com/TuQmano/geofacet_ARG/tree/master/CABA), [`CÓRDOBA`](https://github.com/TuQmano/geofacet_ARG/tree/master/CORDOBA) y [`TUCUMÁN`](https://github.com/TuQmano/geofacet_ARG/tree/master/TUCUMAN).
 
