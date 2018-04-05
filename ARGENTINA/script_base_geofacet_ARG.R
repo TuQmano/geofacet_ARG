@@ -12,8 +12,6 @@
 #     www.tuqmano.com
 #     
 #     
-
-
 ###################################################
 ###################################################
 
@@ -25,6 +23,7 @@ library(readxl)
 library(dplyr)
 library(plyr)
 library(geofacet)  # PAQUETE PARA GENERAR GRAFICOS
+library(RCurl)
 
 
 ###################################################
@@ -36,56 +35,47 @@ library(geofacet)  # PAQUETE PARA GENERAR GRAFICOS
 ###################################################
 ###################################################
 
-nep.prov <- read_csv("Desktop/ENP_f.csv") #IMPORTAR BASE DE DATOS 
+#IMPORTAMOS BASE DE DATOS DE GitHub
+nep.prov <- read.csv(text=getURL("https://raw.githubusercontent.com/TuQmano/geofacet_ARG/master/ARGENTINA/ENP_f.csv"),header=T)
+
+nep.prov$Provincia <- as.character(nep.prov$Provincia)
+nep.prov$Provincia[which(nep.prov$Provincia == "Capital.Federal")] <- "C.A.B.A."
+nep.prov$Provincia <- as.factor(nep.prov$Provincia)
 
 #El cálculo del NEP lo realizó @Crst_Cen base a datos del atlas del gran @andy_tow.
 # En este post se puede encontrar la información 
 #   http://observablesyhechos.blogspot.mx/2014/08/numero-efectivo-de-partidos-en.html   <-------------
 
 
-# COMANDOS EMPATAR NOMBRES DE DISTRITOS DE GRILLA (geofacet) Y BASE DE DATOS
-grilla <- argentina_grid1
-provincias <- grilla$name_es  #para extraer y poder visualizar cómo estan escritos los nombres de las provincias
+# EMPATAR NOMBRES DE DISTRITOS DE GRILLA (geofacet) Y BASE DE DATOS
+argentina_grid2 <-  data.frame(
+  col = c(1, 3, 5, 1, 2, 1, 3, 4, 2, 2, 4, 1, 3, 3, 4, 1, 2, 2, 1, 1, 2, 1, 1, 1),
+  row = c(1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 7, 7, 8, 9, 10),
+  code = c("AR-Y", "AR-P", "AR-N", "AR-A", "AR-T", "AR-K", "AR-H", "AR-W", "AR-G", "AR-X", "AR-E", "AR-F", "AR-S", "AR-B", "AR-C", "AR-J", "AR-D", "AR-L", "AR-M", "AR-Q", "AR-R", "AR-U", "AR-Z", "AR-V"),
+  name_es = c("Jujuy", "Formosa", "Misiones", "Salta", "Tucumán", "Catamarca", "Chaco", "Corrientes", "Santiago.del.Estero", "Córdoba", "Entre.Ríos", "La.Rioja", "Santa.Fe", "Buenos.Aires", "C.A.B.A.", "San.Juan", "San.Luis", "La.Pampa", "Mendoza", "Neuquén", "Río.Negro", "Chubut", "Santa.Cruz", "Tierra.del.Fuego"),
+  stringsAsFactors = FALSE
+)
 
-prov.175n <- as.data.frame(rep(provincias,each=7))  # genero una secuncia de nombres de provincias para cantidad de observaciones de la base de datos de NEP
-colnames(prov.175n) <- "provincia"  # renombro la variable
-prov.175n <- filter(prov.175n, prov.175n$provincia != "Islas Malvinas") #elimino Malvinas
-prov.175n <- filter(prov.175n, prov.175n$provincia != "Antártida Argentina") #elimino Antartida
+#### BORRAR OBSERVACIONES "TOTAL"
 
-
-total.175 <- as.data.frame(c("Total","Total","Total","Total","Total","Total","Total" )) # genero secuencia "total" que no estaba incluida en base de datos
-colnames(total.175) <- "provincia" # renombro la variable
-
-
-prov.175n <- rbind(prov.175n, total.175) # sumo las dos estructuras de datos para que tengan misma cantidad de observaciones
-colnames(prov.175n) <- "provincia" # renombro la variable
-
-colnames(nep.prov) <- c("id", "provincia", "year", "NEPp", "NEPb") # renombro las variables de l abase de datos de NEP
+nep.prov <- nep.prov[!(nep.prov$Provincia == "Total"),]
 
 
-attach(nep.prov)
-nep.prov <- as.data.frame(nep.prov[order(provincia),]) #ORDENO BASE DE DATOS POR PROVINCIAS ALFABETICAMENTE
-detach(nep.prov)
+### RENOMBRO VARIABLES
 
-nep.prov <- cbind(nep.prov, prov.175n)  # COMBINO BASE DE DATOS NEP CON LA QUE CREAMOS DE NOMBRES DE PROVINCIAS DE "GEOFACET"
+colnames(nep.prov) <- c("id", "name_es", "year", "NEPp", "NEPb") # renombro las variables de l abase de datos de NEP
 
-colnames(nep.prov) <- c("id", "provincia", "year", "NEPp", "NEPb", "name") # renombro las variables
-
-
-#por algún motivo, al ordenar alfabeticamente "total" y "tucumán" quedan intercambiadas. 
-#Con los siguientes comandos renombramos esos casos para que las columnas de nombres estén parejas
-
-nep.prov$name[which(nep.prov$provincia == "Tucum<e1>n"  )] <- "Tucumán" 
-nep.prov$name[which(nep.prov$provincia == "Total")] <- "Total"
 
 ##### codigo base para el gráfico
 attach(nep.prov)
 ggplot(nep.prov, aes(year, NEPp)) +
   geom_line(color = "blue") +
-  facet_geo(~ name, grid = "argentina_grid1", scales = "free_y") +
+  facet_geo(~ name_es, grid = argentina_grid2, scales = "free_y") +
   ylab("Número Efectivo de Partidos (NEP)") + 
   scale_x_continuous(name = "Año", breaks = c(1983, 1994, 2005))+ 
   geom_vline(xintercept = 2001, colour="red")+ labs(caption="FUENTE: @Crst_C - http://observablesyhechos.blogspot.mx/2014/08/numero-efectivo-de-partidos-en.html " ) +
   theme_bw()
+
+
 
 
