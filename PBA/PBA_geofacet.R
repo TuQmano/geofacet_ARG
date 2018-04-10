@@ -1,11 +1,11 @@
 ###################################################
 ###################################################
 #     
-#     Geofaceting Argneinta
+#     Geofaceting Argentina
 #     PBA - Secciones Electorales
 #
 #     www.github.com/tuqmano
-#     Por @TuQMano   - 10 de abril de 2017
+#     Por @TuQmano   - 10 de abril de 2018
 ###################################################
 ###################################################
 
@@ -20,12 +20,12 @@ library(geofacet) # <--- geofacet
 ###################################################
 
 PBA <- read_excel("~/Desktop/DATA_PBA2017.xlsx") # data set import
-#Base de datos descargada del escrutinio provisorio. Elección General 2017
+#Base de datos. Elección General 2017
 PBA$seccion <- as.factor(PBA$seccion)
 PBA$partido <- as.factor(PBA$partido)
 
 PBA$electores <- PBA$electores/1000000 # MILLONES DE ELECTORES
-PBA$votos <- PBA$votos/1000 #MILLONES  DE VOTOS
+PBA$votos <- PBA$votos/1000 #MILES DE VOTOS
 
 
 colnames(PBA) <- c("names", "partido", "votos", "electores")
