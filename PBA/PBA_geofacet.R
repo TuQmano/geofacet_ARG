@@ -19,7 +19,7 @@ library(geofacet) # <--- geofacet
 
 ###################################################
 
-PBA <- read_excel("~/Desktop/geofacet LatinR/DATA_PBA2017.xlsx") # data set import
+PBA <- read_excel("~/Desktop/DATA_PBA2017.xlsx") # data set import
 #Base de datos descargada del escrutinio provisorio. Elección General 2017
 PBA$seccion <- as.factor(PBA$seccion)
 PBA$partido <- as.factor(PBA$partido)
