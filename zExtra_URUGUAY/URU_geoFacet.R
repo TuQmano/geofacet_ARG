@@ -15,6 +15,7 @@ library(tidyverse)
 library(readxl)
 library(dplyr)
 library(geofacet) # <--- geofacet
+library(ggthemes)
 
 
 ###################################################
@@ -38,11 +39,17 @@ UR_grid <- data.frame(
 
   
 
-# PLOT 
+
+
+# PLOT  (con ggtheme Wall Street Journal modificado)
 ggplot(URUGUAY) + geom_point(aes(votos, partido, color=partido))+
-  facet_geo(~name, grid=UR_grid, scales="free_x") +
+  facet_geo(~name, grid=UR_grid) +
   ggtitle("Elecciones 2014 (URUGUAY)") +
   ylab("")+
   xlab("%") +
-  theme(axis.text.y = element_blank())
+  labs(color = "Partido") +  
+  theme_wsj(color = "white") +
+ theme(axis.text.y = element_blank(), axis.ticks = element_blank())
   
+
+
