@@ -9,3 +9,5 @@ Este repositorio incluye una serie de ejemplos de cómo se puede utilizar `geofa
 ## Ejemplos
 En este repositorio podemos encontrar ejemplos de [`ARGENTINA`](https://github.com/TuQmano/geofacet_ARG/tree/master/ARGENTINA), [`CABA`](https://github.com/TuQmano/geofacet_ARG/tree/master/CABA), [`CÓRDOBA`](https://github.com/TuQmano/geofacet_ARG/tree/master/CORDOBA),  [`TUCUMÁN`](https://github.com/TuQmano/geofacet_ARG/tree/master/TUCUMAN) y secciones electorales de la [`PROVINCIA DE BUENOS AIRES`](https://github.com/TuQmano/geofacet_ARG/tree/master/PBA).
 
+![ARG](https://raw.githubusercontent.com/TuQmano/geofacet_ARG/master/ARGENTINA/ARGplot.png)
+
