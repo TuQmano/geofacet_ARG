@@ -1,3 +1,5 @@
 # Ejemplo `geofacet`para departamentos de URUGUAY 
 ----
 El repositorio incluye un archivo `.xls`con la base de datos de resultados electorales del año 2014 por Departamento; un archivo de `R`con el script que incluye la grilla - mapa y el código para generar el plot. Además, un mapa con la división politica departamental de Uruguay (`.png`). 
+
+![URU2014](https://raw.githubusercontent.com/TuQmano/geofacet_ARG/master/zExtra_URUGUAY/uru2014.png)
