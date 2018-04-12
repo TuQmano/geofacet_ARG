@@ -40,8 +40,7 @@ UR_grid <- data.frame(
   
 
 
-
-# PLOT  (con ggtheme Wall Street Journal modificado)
+# PLOT 
 ggplot(URUGUAY) + geom_point(aes(votos, partido, color=partido))+
   facet_geo(~name, grid=UR_grid) +
   ggtitle("Elecciones 2014 (URUGUAY)") +
@@ -49,7 +48,7 @@ ggplot(URUGUAY) + geom_point(aes(votos, partido, color=partido))+
   xlab("%") +
   labs(color = "Partido") +  
   theme_wsj(color = "white") +
- theme(axis.text.y = element_blank(), axis.ticks = element_blank())
-  
-
+ theme(axis.text.y = element_blank(), axis.ticks = element_blank())+
+  scale_color_manual(values = c("black", "yellow", "blue", "orange",
+                                "red","violet","green","lightblue"))
 
