@@ -4,3 +4,9 @@ El ejemplo del mapa-grilla de la CABA muestra los resultados electorales para _D
 * `caba2017.xls`contiene los datos electorales. 
 * El código para procesar los datos y generar el gráfico se encuentra en `script.caba2017.geofacet.R`
 * El output fue guardado como `caba2017-facetPlot.png`
+
+![CABA](https://raw.githubusercontent.com/TuQmano/geofacet_ARG/master/CABA/caba2017-facetPlot.png)
+
+
+
+
