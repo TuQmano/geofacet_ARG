@@ -9,3 +9,4 @@ En el ejemplo de `geofacet` para la provincia de Córdoba graficamos el cambio e
 * Un script de **R** ([`Cordoba_geofacet`](https://github.com/TuQmano/geofacet_ARG/blob/master/CORDOBA/Cordoba_geofacet.R))con el código que incluye el mapa-grilla, la manipulación de los datos y la generación del [plot](https://github.com/TuQmano/geofacet_ARG/blob/master/CORDOBA/CORDOBA_geofacet_Electores.png).
 
 
+![CORDOBA](https://raw.githubusercontent.com/TuQmano/geofacet_ARG/master/CORDOBA/CORDOBA_geofacet_Electores.png)
