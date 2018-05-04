@@ -27,6 +27,3 @@ En el repositorio se puede encontrar el código de `R` con un mapa-grilla de `Ar
 * `TUCUMÁN`
 
 Cargamos además ejemplos concretos de aplicaciones de las grillas para los casos de [`ARGENTINA`](https://github.com/TuQmano/geofacet_ARG/tree/master/ARGENTINA) (provincias); [`CABA`](https://github.com/TuQmano/geofacet_ARG/tree/master/CABA) (comunas); departamentos de [`CÓRDOBA`](https://github.com/TuQmano/geofacet_ARG/tree/master/CORDOBA) y  [`TUCUMÁN`](https://github.com/TuQmano/geofacet_ARG/tree/master/TUCUMAN); secciones electorales de la [`PROVINCIA DE BUENOS AIRES`](https://github.com/TuQmano/geofacet_ARG/tree/master/PBA), y un ejemplo adicional con resultados electorales nacionales de [`URUGUAY`](https://github.com/TuQmano/geofacet_ARG/tree/master/zExtra_URUGUAY) (por departamento).
-
-![ARG](https://raw.githubusercontent.com/TuQmano/geofacet_ARG/master/ARGENTINA/ARGplot.png)
-
