@@ -19,6 +19,7 @@ En el repositorio se puede encontrar el código de `R` con un mapa-grilla de `Ar
 * `LA PAMPA`
 * `LA RIOJA`
 * `MENDOZA`
+* `MISIONES`
 * `NEUQUÉN`
 * `PROVINCIA DE BUENOS AIRES` (secciones electorales)
 * `RÍO NEGRO`
