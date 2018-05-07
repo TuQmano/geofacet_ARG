@@ -1,3 +1,6 @@
+# Grilla de departamentos de la provincia de Chubut
+
+
 mygrid <- data.frame(
   name = c("Biedma", "Gastre", "Telsen", "Cushamen", "Futaleufú", "Gaiman", "Rawson", "Languiñeo", "Mártires", "Paso de Indios", "Tehuelches", "Florentino Ameghino", "Río Senguer", "Escalante", "Sarmiento"),
   code = c("Biedma", "Gastre", "Telsen", "Cushamen", "Futaleufú", "Gaiman", "Rawson", "Languiñeo", "Mártires", "Paso de Indios", "Tehuelches", "Florentino Ameghino", "Río Senguer", "Escalante", "Sarmiento"),
