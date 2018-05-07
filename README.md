@@ -8,7 +8,7 @@ Este repositorio incluye una serie de ejemplos de cómo se puede utilizar `geofa
 
 ## TEMPLATES Y EJEMPLOS
 
-En el repositorio se puede encontrar el código de `R` con un mapa-grilla de `Argentina` y sus provincias y la división política (en general departamentos) de:
+En el [repositorio](https://github.com/TuQmano/geofacet_ARG) se puede encontrar el código de `R` con un mapa-grilla de `Argentina` y sus provincias y la división política (en general departamentos) de:
 * `CABA` (comunas)
 * `CATAMARCA`
 * `CHACO`
