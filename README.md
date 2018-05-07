@@ -14,6 +14,7 @@ En el repositorio se puede encontrar el código de `R` con un mapa-grilla de `Ar
 * `CHACO`
 * `CÓRDOBA`
 * `CORRIENTES`
+* `ENTRE RÍOS`
 * `FORMOSA`
 * `JUJUY`
 * `LA PAMPA`
