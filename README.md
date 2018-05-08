@@ -41,7 +41,7 @@ Cargamos además ejemplos concretos de aplicaciones de las grillas para los caso
 
 _"The geofacet package extends ggplot2 in a way that makes it easy to create geographically faceted visualizations in R. To geofacet is to take data representing different geographic entities and apply a visualization method to the data for each entity, with the resulting set of visualizations being laid out in a grid that mimics the original geographic topology as closely as possible"._ (Ryan Hafen).
 
-This repository includes a series of examples of how `geofacet` can be used to create graphics grids with designs that replicate maps of Argentine entities. A good explanation of what the advantages of this technique are is available in the blog post of the [package author] (http://ryanhafen.com/blog/geofacet).
+This repository includes a series of examples of how `geofacet` can be used to create graphics grids with designs that replicate maps of Argentine entities. A good explanation of what the advantages of this technique are is available in the blog post of the [package author](http://ryanhafen.com/blog/geofacet).
 
 ## TEMPLATES & EXAMPLES
 The [repo](https://github.com/TuQmano/geofacet_ARG) includes `R` code with an `Argentina`_map - grid_ of it´s provinces and others with each province political division (`departamentos`in general):
