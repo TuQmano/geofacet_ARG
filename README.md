@@ -1,6 +1,6 @@
 # `geofacet_ARG` 
 
-* Plantillas para  gráficos con data *georeferenciada* /// Templates for graphics with georeferenced data .
+Plantillas para  gráficos con data *georeferenciada* | _Templates for graphics with georeferenced data_ .
 --------------------
 _"El paquete geofacet amplía `ggplot2` de una manera que facilita la creación de visualizaciones geográficamente facetadas en `R`. Para hacer `geofacet` se toman datos que representan diferentes entidades geográficas y se aplica un método de visualización para cada entidad, con el conjunto resultante de visualizaciones establecidas en una cuadrícula que imita la topología geográfica original lo más cerca posible."_ (Ryan Hafen)
 
