@@ -6,9 +6,18 @@ El equipo de [@EconomiaFeminita](https://twitter.com/EcoFeminita/) juntó y puso
 
 # DIPUTADOS
 
+
 ![plot1](https://github.com/TuQmano/geofacet_ARG/blob/master/ARGENTINA/ABORTO/plot1.png)
 
-El gráfico anterior resume las posiciones (en %) de los 257 diputados nacionales (magnitud variable). 
+El gráfico anterior resume las posiciones (en %) de los 257 diputados nacionales (magnitud variable). La tabla que sigue detalla la frecuencia y los porcentajes. 
+
+
+Posición | Frecuencia |Porcentaje
+--- | --- |---
+A Favor | 105 | 40.8
+En Contra| 112 |43.5
+No confirmado | 37 |14.39
+Se Abstiene | 3 | 1.16
 
 Esta es una buena oportunidad para poner a prueba la utilidad del mapa de Argentina en su versión `geofacet`(argentina_grid2). 
 
