@@ -24,7 +24,7 @@ El mismo ejercicio se repitió para la cámara alta (72 senadores; 3 por provinc
 ![plot4](https://github.com/TuQmano/geofacet_ARG/blob/master/ARGENTINA/ABORTO/plot4.png)
 
 
-El repositorio incluye:
+El [repositorio](https://github.com/TuQmano/geofacet_ARG/tree/master/ARGENTINA/ABORTO) incluye:
 * un script de `R` con el manejo de datos y el código para producir los 4 gráficos. 
 * archivos `.csv` con los datos (uno por cámara legislativa)
 * archivos `.png`con los gráficos. 
