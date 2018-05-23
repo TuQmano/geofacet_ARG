@@ -29,6 +29,14 @@ El gráfico que sigue es la posición de los diputados por provincia respecto de
 
 El mismo ejercicio se repitió para la cámara alta (72 senadores; 3 por provincia). 
 
+Posición | Frecuencia |Porcentaje
+--- | --- |---
+A Favor | 16 | 22.22
+En Contra| 27 |37.5
+No confirmado | 29 |40.27
+
+
+
 ![plot3](https://github.com/TuQmano/geofacet_ARG/blob/master/ARGENTINA/ABORTO/plot3.png)
 ![plot4](https://github.com/TuQmano/geofacet_ARG/blob/master/ARGENTINA/ABORTO/plot4.png)
 
