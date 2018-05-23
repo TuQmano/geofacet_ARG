@@ -8,7 +8,7 @@ El equipo de [@EconomiaFeminita](https://twitter.com/EcoFeminita/) juntó y puso
 
 ![plot1](https://github.com/TuQmano/geofacet_ARG/blob/master/ARGENTINA/ABORTO/plot1.png)
 
-El gráfico anterior resume las posiciones (en %) de los 257 diputados nacionales. 
+El gráfico anterior resume las posiciones (en %) de los 257 diputados nacionales (magnitud variable). 
 
 Esta es una buena oportunidad para poner a prueba la utilidad del mapa de Argentina en su versión `geofacet`(argentina_grid2). 
 
@@ -18,7 +18,10 @@ El gráfico que sigue es la posición de los diputados por provincia respecto de
 
 # SENADO
 
-El mismo ejercicio se puede hacer para la cámara alta. 
+El mismo ejercicio se repitió para la cámara alta (72 senadores; 3 por provincia). 
+
+![plot3](https://github.com/TuQmano/geofacet_ARG/blob/master/ARGENTINA/ABORTO/plot3.png)
+![plot4](https://github.com/TuQmano/geofacet_ARG/blob/master/ARGENTINA/ABORTO/plot4.png)
 
 
 El repositorio incluye:
