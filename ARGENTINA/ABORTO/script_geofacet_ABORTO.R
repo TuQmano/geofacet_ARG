@@ -70,7 +70,8 @@ colnames(aborto) <- c("Distrito", "Posición","Diputados", "Total", "Porcentaje"
 
                           # BARRAS CON NUMEROS AGREGADOS SOBRE POSICION DE LOS  257 DIPUTADOS
 ggplot(tablaPos) + 
-  geom_col(aes(Posición, Porcentaje, fill= Posición)) +
+  geom_col(aes(Posición, Porcentaje, fill= Posición))+
+  scale_fill_manual(values = c("#59a14f", "#e15759", "#4e79a7", "#9933ff"))+
   labs(title = "Posición de miembros de la Cámara de Diputados de la Nación respecto al aborto",
        caption = "Nota: Creado por @TuQmano. Los datos utilizados fueron recopilados por @EcoFeminita") +
   theme_bw()
@@ -128,3 +129,75 @@ ggplot(aborto, aes("", Porcentaje, fill = Posición)) +
            axis.text.x = element_blank(),
            axis.ticks.x = element_blank(),
            strip.text.x = element_text(size = 6))
+
+
+
+#####################################
+#####################################
+ #            SENADO
+#####################################
+#####################################
+
+
+abortoSEN <- read_csv("~/Desktop/Aborto_geofacet/AbortoLegal_ Contando Porotos - Senadores.csv")
+
+
+abortoSEN <- select(abortoSEN, c(10,19)) # SELECCIONAR VARIABLES (Distrito y posición)
+
+colnames(abortoSEN) <- c("dist", "pos") # renombrar variables
+
+# Transformar clase de variable (de "caractéres" a "factor")
+abortoSEN$dist <- as.factor(abortoSEN$dist) # 24 niveles (uno x distrito)  #levels(abortoSEN$dist)
+abortoSEN$pos <- as.factor(abortoSEN$pos) # 3 niveles (Favor, Contra, S/Confirmar)
+
+
+# CREAR UN df a partir de una tabla de frecuencia de las posiciones
+tablaPosSEN <- as.data.frame(table(abortoSEN$pos)) 
+
+################  MISMO QUE ANTERIOR PERO VERSION TIDY
+abortoSEN$n.pos <- 1
+abortoSEN %>% 
+  group_by(pos) %>%
+  summarize(n.pos=sum(n.pos)) %>%
+  data.frame()
+###
+
+
+tablaPosSEN$pct <- (tablaPosSEN$Freq/72)*100 # Nueva variable con el porcentual de cada una de las posiciones
+colnames(tablaPosSEN) <- c("Posición", "Frecuencia", "Porcentaje") # Renombrar variables
+
+# TABLA PARA CONTAR CANTIDAD DE SENADORES POR PROVINCIA
+Sen.Prov <- as.data.frame(table(abortoSEN$dist))  # NO TIENE MUCHO SENTIDO. SON 3 FIJOS POR PROVINCIA. LO HACEMOS IGUAL
+colnames(Sen.Prov) <- c("dist", "nSen")   # RENOMBRAR
+
+abortoSEN <- abortoSEN %>%  
+  group_by(pos, dist) %>%
+  summarize(n.pos=sum(n.pos)) %>%
+  data.frame()
+
+
+abortoSEN <- merge(abortoSEN, Sen.Prov) # COMBINAR BASES DE DATOS
+
+
+abortoSEN$pct <- abortoSEN$n.pos/abortoSEN$nSen*100  # PORCENTAJE DE POSICION POR PROVINCIA
+aborto <- DipAbortoProv  # DUBLICAR BASE DE DATOS CON NUEVO NOMBRE 
+colnames(aborto) <- c("Distrito", "Posición","Diputados", "Total", "Porcentaje") # CAMBIAR NOMBRE A LAS VARIABLES
+
+##
+### PLOT 1#################################
+##
+
+
+
+
+# BARRAS CON NUMEROS AGREGADOS SOBRE POSICION DE LOS  257 DIPUTADOS
+ggplot(tablaPos) + 
+  geom_col(aes(Posición, Porcentaje, fill= Posición))+
+  scale_fill_manual(values = c("#59a14f", "#e15759", "#4e79a7", "#9933ff"))+
+  labs(title = "Posición de miembros de la Cámara de Diputados de la Nación respecto al aborto",
+       caption = "Nota: Creado por @TuQmano. Los datos utilizados fueron recopilados por @EcoFeminita") +
+  theme_bw()
+
+
+
+
