@@ -180,7 +180,7 @@ abortoSEN <- merge(abortoSEN, Sen.Prov) # COMBINAR BASES DE DATOS
 
 
 abortoSEN$pct <- abortoSEN$n.pos/abortoSEN$nSen*100  # PORCENTAJE DE POSICION POR PROVINCIA
-aborto <- DipAbortoProv  # DUBLICAR BASE DE DATOS CON NUEVO NOMBRE 
+
 colnames(aborto) <- c("Distrito", "Posición","Diputados", "Total", "Porcentaje") # CAMBIAR NOMBRE A LAS VARIABLES
 
 ##
@@ -188,16 +188,46 @@ colnames(aborto) <- c("Distrito", "Posición","Diputados", "Total", "Porcentaje"
 ##
 
 
-
-
-# BARRAS CON NUMEROS AGREGADOS SOBRE POSICION DE LOS  257 DIPUTADOS
-ggplot(tablaPos) + 
+# BARRAS CON NUMEROS AGREGADOS SOBRE POSICION DE LOS 72 SENADORES
+ggplot(tablaPosSEN) + 
   geom_col(aes(Posición, Porcentaje, fill= Posición))+
-  scale_fill_manual(values = c("#59a14f", "#e15759", "#4e79a7", "#9933ff"))+
-  labs(title = "Posición de miembros de la Cámara de Diputados de la Nación respecto al aborto",
-       caption = "Nota: Creado por @TuQmano. Los datos utilizados fueron recopilados por @EcoFeminita") +
+  scale_fill_manual(values = c("#59a14f", "#e15759", "#4e79a7"))+
+  labs(title = "Posición de miembros de la Cámara de Senadores de la Nación respecto al aborto",
+       caption = "Por @TuQmano. Los datos utilizados fueron recopilados por @EcoFeminita") +
   theme_bw()
 
 
 
+# RNNOMBRAR DISTRITOS SEGUN NOMBRES DE GRILLAS
+abortoSEN$Distrito <- as.character(abortoSEN$Distrito)
+abortoSEN$Distrito[which(abortoSEN$Distrito == "Buenos Aires")] <- "Buenos.Aires"
+abortoSEN$Distrito[which(abortoSEN$Distrito == "Ciudad Autónoma de Buenos Aires")] <- "C.A.B.A."
+abortoSEN$Distrito[which(abortoSEN$Distrito == "Entre Ríos")] <- "Entre.Ríos"
+abortoSEN$Distrito[which(abortoSEN$Distrito == "La Pampa")] <- "La.Pampa"
+abortoSEN$Distrito[which(abortoSEN$Distrito == "La Rioja")] <- "La.Rioja"
+abortoSEN$Distrito[which(abortoSEN$Distrito == "Río Negro")] <- "Río.Negro"
+abortoSEN$Distrito[which(abortoSEN$Distrito == "San Juan")] <- "San.Juan"
+abortoSEN$Distrito[which(abortoSEN$Distrito == "San Luis")] <- "San.Luis"
+abortoSEN$Distrito[which(abortoSEN$Distrito == "Santa Cruz")] <- "Santa.Cruz"
+abortoSEN$Distrito[which(abortoSEN$Distrito == "Santa Fe")] <- "Santa.Fe"
+abortoSEN$Distrito[which(abortoSEN$Distrito == "Santiago del Estero")] <- "S.del.Estero"
+abortoSEN$Distrito[which(abortoSEN$Distrito == "Tierra del Fuego")] <- "T.del.Fuego"
+abortoSEN$Distrito <- as.factor(abortoSEN$Distrito)
 
+
+
+
+## PLOTEO  geofacet de columnas. Porcentaje de senadores ... del aborto
+ggplot(abortoSEN, aes("", Porcentaje, fill = Posición)) + 
+  geom_col(alpha = 0.8, width = 1) +
+  scale_fill_manual(values = c("#59a14f", "#e15759", "#4e79a7")) +
+  facet_geo(~ Distrito, grid = argentina_grid2) +
+  scale_y_continuous(expand = c(0, 0)) +
+  labs(title = "Posición senadores respecto al aborto",
+       caption = "@TuQmano con datos de @EcoFeminita",
+       x = NULL, 
+       y = "Porcentaje de Senadores") +
+  theme(axis.title.x = element_blank(),
+        axis.text.x = element_blank(),
+        axis.ticks.x = element_blank(),
+        strip.text.x = element_text(size = 6))
