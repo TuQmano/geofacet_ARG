@@ -6,6 +6,13 @@ El equipo de [@EconomiaFeminita](https://twitter.com/EcoFeminita/) juntó y puso
 
 (El registro fue descargado con la actualización de datos hasta el día 22 de mayo de 2018)
 
+El [repositorio](https://github.com/TuQmano/geofacet_ARG/tree/master/ARGENTINA/ABORTO) incluye:
+* un script de `R` con el manejo de datos y el código para producir los 6 gráficos. 
+* archivos `.csv` con los datos (uno por cámara legislativa)
+* archivos `.png`con los gráficos. 
+
+
+
 # DIPUTADOS
 
 
@@ -43,10 +50,19 @@ No confirmado | 29 |40.27
 ![plot4](https://github.com/TuQmano/geofacet_ARG/blob/master/ARGENTINA/ABORTO/plot4.png)
 
 
-El [repositorio](https://github.com/TuQmano/geofacet_ARG/tree/master/ARGENTINA/ABORTO) incluye:
-* un script de `R` con el manejo de datos y el código para producir los 4 gráficos. 
-* archivos `.csv` con los datos (uno por cámara legislativa)
-* archivos `.png`con los gráficos. 
+---
+# POSICIONES PARTIDARIAS
+
+Otra manera de ver los datos es incluyendo la variable partidaria de los legisladores. ¿Cómo se ven estos números si diferenciamos además por el partido al que pertenecen los legisladores?
+
+De forma agragada este es el cuadro para los diputados: 
+
+![plot5](https://github.com/TuQmano/geofacet_ARG/blob/master/ARGENTINA/ABORTO/plot5.png)
+
+Podemos también hacer el ejercicio de graficar las posiciones partidarias de cada uno de los diputados en función de su provincia de origen. Este es el resultado. 
+
+![plot6](https://github.com/TuQmano/geofacet_ARG/blob/master/ARGENTINA/ABORTO/plot6.png)
+
 
 
 
