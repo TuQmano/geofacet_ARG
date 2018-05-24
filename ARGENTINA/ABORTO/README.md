@@ -1,8 +1,10 @@
-# ¿Cual es la posición de los legisladores de Argentina sobre el aborto? (23 mayo de 2018)
+# ¿Cual es la posición de los legisladores de Argentina sobre el aborto? 
 
 ---
 
 El equipo de [@EconomiaFeminita](https://twitter.com/EcoFeminita/) juntó y puso a disposición una [base de datos](https://docs.google.com/spreadsheets/d/1mOiTT3JIdQPxVLTQ-a3OivQqE15oLvdWMv6I_DpMZak/edit?ts=5a91f1d7#gid=0) para registrar la posición de los legisladores de Argentina (diputados y senadores) respecto el aborto. 
+
+(El registro fue descargado con la actualización de datos hasta el día 22 de mayo de 2018)
 
 # DIPUTADOS
 
