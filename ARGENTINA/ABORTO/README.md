@@ -13,7 +13,7 @@ El [repositorio](https://github.com/TuQmano/geofacet_ARG/tree/master/ARGENTINA/A
 
 
 
-# DIPUTADOS
+**DIPUTADOS**
 
 
 ![plot1](https://github.com/TuQmano/geofacet_ARG/blob/master/ARGENTINA/ABORTO/plot1.png)
@@ -34,7 +34,7 @@ El gráfico que sigue es la posición de los diputados por provincia respecto de
 
 ![plot2](https://github.com/TuQmano/geofacet_ARG/blob/master/ARGENTINA/ABORTO/plot2.png)
 
-# SENADO
+**SENADORES**
 
 El mismo ejercicio se repitió para la cámara alta (72 senadores; 3 por provincia). 
 
@@ -55,7 +55,9 @@ No confirmado | 29 |40.27
 
 Otra manera de ver los datos es incluyendo la variable partidaria de los legisladores. ¿Cómo se ven estos números si diferenciamos además por el partido al que pertenecen los legisladores?
 
-De forma agragada este es el cuadro para los diputados: 
+
+**DIPUTADOS**
+De forma agragada el siguiente es el cuadro para los diputados en el Congreso de la Nación: 
 
 ![plot5](https://github.com/TuQmano/geofacet_ARG/blob/master/ARGENTINA/ABORTO/plot5.png)
 
@@ -63,7 +65,14 @@ Podemos también hacer el ejercicio de graficar las posiciones partidarias de ca
 
 ![plot6](https://github.com/TuQmano/geofacet_ARG/blob/master/ARGENTINA/ABORTO/plot6.png)
 
+**SENADORES**
 
+Esta es la situación de las posiciones de los legiladores en la camara alta (Senado) teniendo en cuenta su pertenencia partidaria. 
 
+![plot7](https://github.com/TuQmano/geofacet_ARG/blob/master/ARGENTINA/ABORTO/plot7.png)
+
+Y esta sería la respresentación geográfica de la posición de los senadores teniendo en cuenta la provincia de procedencia, además de su pertenencia partidaria. 
+
+![plot8](https://github.com/TuQmano/geofacet_ARG/blob/master/ARGENTINA/ABORTO/plot8.png)
 
 
