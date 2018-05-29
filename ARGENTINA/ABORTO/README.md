@@ -12,9 +12,7 @@ El [repositorio](https://github.com/TuQmano/geofacet_ARG/tree/master/ARGENTINA/A
 * archivos `.png`con los gráficos. 
 
 
-
 **DIPUTADOS**
-
 
 ![plot1](https://github.com/TuQmano/geofacet_ARG/blob/master/ARGENTINA/ABORTO/plot1.png)
 
@@ -44,10 +42,10 @@ A Favor | 16 | 22.22
 En Contra| 27 |37.5
 No confirmado | 29 |40.27
 
-Datos agregados
 ![plot3](https://github.com/TuQmano/geofacet_ARG/blob/master/ARGENTINA/ABORTO/plot3.png)
 
 Una visión *geográfica* 
+
 ![plot4](https://github.com/TuQmano/geofacet_ARG/blob/master/ARGENTINA/ABORTO/plot4.png)
 
 
@@ -55,7 +53,6 @@ Una visión *geográfica*
 # POSICIONES PARTIDARIAS
 
 ¿Cómo se ven estos números si diferenciamos además por partido político? Para ello incluímos una variable de identificación de pertenencia partidaria de cada uno de los legisladores. 
-
 
 **DIPUTADOS**
 De forma agragada el siguiente es el cuadro para los diputados en el Congreso de la Nación. 
