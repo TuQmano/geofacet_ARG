@@ -18,7 +18,7 @@ El [repositorio](https://github.com/TuQmano/geofacet_ARG/tree/master/ARGENTINA/A
 
 ![plot1](https://github.com/TuQmano/geofacet_ARG/blob/master/ARGENTINA/ABORTO/plot1.png)
 
-El gráfico anterior resume las posiciones (en %) de los 257 diputados nacionales (magnitud variable). La tabla que sigue detalla la frecuencia y los porcentajes. 
+El gráfico anterior resume las posiciones (en %) de los 257 diputados nacionales (magnitud variable por provincia según población). La tabla que sigue detalla la frecuencia y los porcentajes. 
 
 
 Posición | Frecuencia |Porcentaje
@@ -28,9 +28,9 @@ En Contra| 112 |43.5
 No confirmado | 37 |14.39
 Se Abstiene | 3 | 1.16
 
-Esta es una buena oportunidad para poner a prueba la utilidad del mapa de Argentina en su versión `geofacet`(argentina_grid2). 
+Una buena manera para tener una visión geográfica de esta información es plotear un mapa de Argentina en su versión `geofacet`(argentina_grid2). 
 
-El gráfico que sigue es la posición de los diputados por provincia respecto del aborto. 
+El gráfico que sigue refleja la posición respecto a #AbortoLegalYa de los diputados, por provincia.
 
 ![plot2](https://github.com/TuQmano/geofacet_ARG/blob/master/ARGENTINA/ABORTO/plot2.png)
 
@@ -44,20 +44,21 @@ A Favor | 16 | 22.22
 En Contra| 27 |37.5
 No confirmado | 29 |40.27
 
-
-
+Datos agregados
 ![plot3](https://github.com/TuQmano/geofacet_ARG/blob/master/ARGENTINA/ABORTO/plot3.png)
+
+Una visión *geográfica* 
 ![plot4](https://github.com/TuQmano/geofacet_ARG/blob/master/ARGENTINA/ABORTO/plot4.png)
 
 
 ---
 # POSICIONES PARTIDARIAS
 
-Otra manera de ver los datos es incluyendo la variable partidaria de los legisladores. ¿Cómo se ven estos números si diferenciamos además por el partido al que pertenecen los legisladores?
+¿Cómo se ven estos números si diferenciamos además por partido político? Para ello incluímos una variable de identificación de pertenencia partidaria de cada uno de los legisladores. 
 
 
 **DIPUTADOS**
-De forma agragada el siguiente es el cuadro para los diputados en el Congreso de la Nación: 
+De forma agragada el siguiente es el cuadro para los diputados en el Congreso de la Nación. 
 
 ![plot5](https://github.com/TuQmano/geofacet_ARG/blob/master/ARGENTINA/ABORTO/plot5.png)
 
@@ -67,7 +68,7 @@ Podemos también hacer el ejercicio de graficar las posiciones partidarias de ca
 
 **SENADORES**
 
-Esta es la situación de las posiciones de los legiladores en la camara alta (Senado) teniendo en cuenta su pertenencia partidaria. 
+Esta es la situación de las posiciones de los legisladores en la camara alta (Senado de la Nación) teniendo en cuenta su pertenencia partidaria. 
 
 ![plot7](https://github.com/TuQmano/geofacet_ARG/blob/master/ARGENTINA/ABORTO/plot7.png)
 
