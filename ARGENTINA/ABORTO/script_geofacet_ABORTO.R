@@ -3,8 +3,8 @@
 #       geofacet ARGENTINA - ABORTO
 #
 #       Creado por @TuQmano - www.github.com/tuqmano  
-#       22 de mayo de 2018
-#       Úlrima modificación: 24 de mayo de 2018
+#       Creado el 22 de mayo de 2018
+#       Úlrima modificación: 7 de junio de 2018 (con datos actualizados hasta el momento)
 #
 
 
@@ -18,15 +18,20 @@ library(ggthemes)
 # Recopilación de EconomíaFeminita 
 #   -> http://economiafeminita.com/aborto-legal-como-votarian-nuestros-representantes/
 
+
+dataDipu <- "~/Desktop/Aborto_geofacet/data/AbortoLegal_ Contando Porotos - Diputados7jun.csv"
+dataSen <- "~/Desktop/Aborto_geofacet/data/AbortoLegal_ Contando Porotos - Senadores 7jun.csv"
+plots <- "~/Desktop/Aborto_geofacet/plots"
+
+
 ######## DIPUTADOS ########
 
 
 
-DipAborto <- read_csv("~/Desktop/Aborto_geofacet/AbortoLegal_ Contando Porotos - Diputados.csv",
-                      na = "NA", trim_ws = FALSE)
+DipAborto <- read_csv(dataDipu, na = "NA", trim_ws = FALSE)
 
 
-DipAborto <- select(DipAborto, c(9,14)) # SELECCIONAR VARIABLES (Distrito y posición)
+DipAborto <- select(DipAborto, c(9,16)) # SELECCIONAR VARIABLES (Distrito y posición)
 
 colnames(DipAborto) <- c("dist", "pos") # renombrar variables
 
@@ -78,9 +83,13 @@ colnames(aborto) <- c("Distrito", "Posición","Diputados", "Total", "Porcentaje"
 ggplot(tablaPos) + 
   geom_col(aes(Posición, Porcentaje, fill= Posición))+
   scale_fill_manual(values = c("#59a14f", "#e15759", "#4e79a7", "#9933ff"))+
-  labs(title = "Posición de  Diputados respecto al #AbortoLegalYa",
+  labs(title = " % Diputados respecto al #AbortoLegalYa",
+       subtitle = "(7 de junio)",
        caption = " @TuQmano con datos de @EcoFeminita") +
-  theme_fivethirtyeight()
+  theme_fivethirtyeight() +
+  theme(axis.ticks.x = element_blank(),
+        axis.text.x = element_blank()) + 
+  ggsave("posDip.png", last_plot(), path = plots, width = 150, height = 200, units = "mm")
 
 ####
 ####   PLOT 2 #######################################
@@ -127,14 +136,16 @@ ggplot(aborto, aes("", Porcentaje, fill = Posición)) +
   scale_fill_manual(values = c("#59a14f", "#e15759", "#4e79a7", "#9933ff")) +
   facet_geo(~ Distrito, grid = argentina_grid2) +
   scale_y_continuous(expand = c(0, 0)) +
-  labs(title = "Posición de Diputados respecto a #AbortoLegalYa",
+  labs(title = "Diputados respecto a #AbortoLegalYa (7 de junio)",
        caption = "@TuQmano con datos de @EcoFeminita",
        x = NULL, 
        y = "Porcentaje ") +
   theme(axis.title.x = element_blank(),
            axis.text.x = element_blank(),
            axis.ticks.x = element_blank(),
-           strip.text.x = element_text(size = 8))
+           strip.text.x = element_text(size = 8)) + 
+  ggsave("GeoDip.png", last_plot(), path = plots, width = 150, height = 200, units = "mm")
+
 
 
 
@@ -146,7 +157,7 @@ ggplot(aborto, aes("", Porcentaje, fill = Posición)) +
 #
 #
 
-SenAborto <- read_csv("~/Desktop/Aborto_geofacet/AbortoLegal_ Contando Porotos - Senadores.csv")
+SenAborto <- read_csv(dataSen)
 
 
 SenAborto.provincia <- select(SenAborto, c(10,19)) # SELECCIONAR VARIABLES (Distrito y posición)
@@ -174,6 +185,27 @@ SenAborto.provincia %>%
 tablaPosSEN$pct <- (tablaPosSEN$Freq/72)*100 # Nueva variable con el porcentual de cada una de las posiciones
 colnames(tablaPosSEN) <- c("Posición", "Frecuencia", "Porcentaje") # Renombrar variables
 
+
+##
+### PLOT 3 #################################
+##
+
+# BARRAS CON NUMEROS AGREGADOS SOBRE POSICION DE LOS  72 SENADORES
+ggplot(tablaPosSEN) + 
+  geom_col(aes(Posición, Porcentaje, fill= Posición))+
+  ylim(0,50) +
+  scale_fill_manual(values = c("#59a14f", "#e15759", "#4e79a7"))+
+  labs(title = "% Senadores respecto al #AbortoLegalYa",
+       subtitle = "(7 de junio)",
+       caption = "@TuQmano con datos de @EcoFeminita") +
+  theme_fivethirtyeight() +
+  theme(axis.ticks.x = element_blank(),
+        axis.text.x = element_blank()) + 
+  ggsave("posSen.png", last_plot(), path = plots, width = 150, height = 200, units = "mm")
+
+
+
+
 # TABLA PARA CONTAR CANTIDAD DE SENADORES POR PROVINCIA
 Sen.Prov <- as.data.frame(table(SenAborto.provincia$dist))  # NO TIENE MUCHO SENTIDO. SON 3 FIJOS POR PROVINCIA. LO HACEMOS IGUAL
 colnames(Sen.Prov) <- c("dist", "nSen")   # RENOMBRAR
@@ -191,20 +223,10 @@ SenAborto.provincia$pct <- SenAborto.provincia$n.pos/SenAborto.provincia$nSen*10
 
 colnames(SenAborto.provincia) <- c("Distrito", "Posición","Senadores", "Total", "Porcentaje") # CAMBIAR NOMBRE A LAS VARIABLES
 
-##
-### PLOT 3 #################################
-##
-
-# BARRAS CON NUMEROS AGREGADOS SOBRE POSICION DE LOS  72 SENADORES
-ggplot(SenAborto.provincia) + 
-  geom_col(aes(Posición, Porcentaje, fill= Posición))+
-  scale_fill_manual(values = c("#59a14f", "#e15759", "#4e79a7"))+
-  labs(title = "Posición de Senadores respecto al #AbortoLegalYa",
-       caption = "@TuQmano con datos de @EcoFeminita") +
-  theme_fivethirtyeight()
 
 
-# RENNOMBRAR DISTRITOS SEGUN NOMBRES DE GRILLAS
+
+# RENOMBRAR DISTRITOS SEGUN NOMBRES DE GRILLAS
 SenAborto.provincia$Distrito <- as.character(SenAborto.provincia$Distrito)
 SenAborto.provincia$Distrito[which(SenAborto.provincia$Distrito == "Buenos Aires")] <- "Buenos.Aires"
 SenAborto.provincia$Distrito[which(SenAborto.provincia$Distrito == "Ciudad Autónoma de Buenos Aires")] <- "C.A.B.A."
@@ -229,14 +251,16 @@ ggplot(SenAborto.provincia, aes("", Porcentaje, fill = Posición)) +
   scale_fill_manual(values = c("#59a14f", "#e15759", "#4e79a7")) +
   facet_geo(~ Distrito, grid = argentina_grid2) +
   scale_y_continuous(expand = c(0, 0)) +
-  labs(title = "Posición de Senadores respecto a #AbortoLegalYa",
+  labs(title = "Senadores respecto a #AbortoLegalYa (7 de junio)",
        caption = "@TuQmano con datos de @EcoFeminita",
        x = NULL, 
        y = "Porcentaje de Senadores") +
   theme(axis.title.x = element_blank(),
         axis.text.x = element_blank(),
         axis.ticks.x = element_blank(),
-        strip.text.x = element_text(size = 8))
+        strip.text.x = element_text(size = 8)) + 
+  ggsave("geoSen.png", last_plot(), path = plots, width = 150, height = 200, units = "mm")
+
 
 #             
 ###
@@ -251,8 +275,7 @@ ggplot(SenAborto.provincia, aes("", Porcentaje, fill = Posición)) +
 
 ### DIPUTADOS - PARTIDO ####
 
-partido <- read_csv("~/Desktop/Aborto_geofacet/AbortoLegal_ Contando Porotos - Diputados.csv",
-                      na = "NA", trim_ws = FALSE)
+partido <- read_csv(dataDipu, trim_ws = FALSE)
 partido <-table(partido$Fuerza,partido$PosicionFrenteAlAborto) # crea tabla de frecuencia de dos variables categoricas
 partido <- as.data.frame.matrix(partido) # Transformar objeto  de la tabla en una matriz - data frame
 partido <- rownames_to_column(partido) # Crear variable con nombre de filas
@@ -280,59 +303,34 @@ ggplot(partido) +
   geom_col(aes(posición, votos, fill = posición))+
   scale_fill_manual(values = c("#59a14f", "#e15759", "#808080", "#808080")) + 
   facet_wrap(~ toupper(rowname)) +
-  labs(title = "Posición de Diputados frente al #AbortoLegalYa por fuerza política", 
+  labs(title = "Diputados frente al #AbortoLegalYa",
+       subtitle = "(7 de junio)", 
        x="",
        y="", 
       fill = "Posición", 
       caption = "@TuQmano con datos de @ecofeminita") +
-  theme_fivethirtyeight()
+  theme_fivethirtyeight() +
+  theme(axis.ticks.x = element_blank(),
+        axis.text.x = element_blank()) + 
+  ggsave("posDipPart.png", last_plot(), path = plots, width = 150, height = 200, units = "mm")
+
 
 detach(partido)
 
 
-# FACET GRID DOS DIMENSIONES (POSICION  & PARTIDO POLITICO)
-attach(partido)
-ggplot(partido) +
-  geom_col(aes("", votos, fill = posición))+
-  scale_fill_manual(values = c("#59a14f", "#e15759", "#d9d9d9", "#808080"))+ 
-  ylim(0, 65) + 
-  facet_grid(posición ~ toupper(rowname)) +
-  labs(title = "Posición de Diputados frente al #AbortoLegalYa por fuerza política", 
-       x="",
-       y="", 
-       fill = "Posición", 
-       caption = "@TuQmano con datos de @ecofeminita")+
-  theme_fivethirtyeight()
-
-
-# FACET GRID  POSICION  
-attach(partido)
-ggplot(partido) +
-  geom_col(aes("", votos, fill =  rowname))+
-  scale_fill_manual(values = c("#e6e600","#4d88ff","#59a14f", "#66004d", "#004d00", "#0033cc"))+ 
-  ylim(0, 120) + 
-  facet_grid(~posición) +
-  labs(title = "Posición de Diputados frente al #AbortoLegalYa por fuerza política", 
-       x="",
-       y="", 
-       fill = "Posición", 
-       caption = "@TuQmano con datos de @ecofeminita")+
-  theme_fivethirtyeight()
-
-detach(partido)
 
 
 ### PLOT 6 ####
 #### POR PARTIDO Y PROVINCIA
 
-partido.provincia <- read_csv("~/Desktop/Aborto_geofacet/AbortoLegal_ Contando Porotos - Diputados.csv",
-                    na = "NA", trim_ws = FALSE)
+partido.provincia <- read_csv(dataDipu, na = "NA", trim_ws = FALSE)
 
-partido.provincia <- select(partido.provincia, c(8, 9, 14))
+partido.provincia <- select(partido.provincia, c(8, 9, 16))
 colnames(partido.provincia) <-  c("Fuerza", "Distrito", "Posición")
 
-
 attach(partido.provincia)
+partido.provincia$Fuerza[which(partido.provincia$Fuerza == "izq")] <- "otros"
+
 
 # RENOMBRAR DISTRITOS SEGUN NOMBRES DE GRILLAS
 partido.provincia$Distrito <- as.character(partido.provincia$Distrito)
@@ -356,18 +354,20 @@ ggplot(partido.provincia) +
   scale_fill_manual(values = c("#59a14f", "#e15759", "#4e79a7", "#9933ff"))+ 
   facet_geo(~Distrito, grid = argentina_grid2) + 
   coord_flip() +
-  labs(x="", y="") + labs(title = "Posición de Diputados frente al #AbortoLegalYa por fuerza política", 
+  labs(x="", y="") + labs(title = "Diputados frente al #AbortoLegalYa",
+                          subtitle = "(7 de junio)", 
                          x="",
                          y="", 
                          fill = "Posición", 
-                         caption = "@TuQmano con datos de @ecofeminita")
+                         caption = "@TuQmano con datos de @ecofeminita")  + 
+  ggsave("GeoDipPart.png", last_plot(), path = plots, width = 165, height = 200, units = "mm")
+
   
 
 
 ### SENADORES  - PARTIDO ####
 
-partido.sen <- read_csv("~/Desktop/Aborto_geofacet/AbortoLegal_ Contando Porotos - Senadores.csv",
-                    na = "NA", trim_ws = FALSE)
+partido.sen <- read_csv(dataSen,na = "NA", trim_ws = FALSE)
 partido.sen <-table(partido.sen$orientacion ,partido.sen$PosicionFrenteAlAborto) # crea tabla de frecuencia de dos variables categoricas
 partido.sen <- as.data.frame.matrix(partido.sen) # Transformar objeto  de la tabla en una matriz - data frame
 partido.sen <- rownames_to_column(partido.sen) # Crear variable con nombre de filas
@@ -385,38 +385,27 @@ ggplot(partido.sen) +
   geom_col(aes(posición, votos, fill = posición))+
   scale_fill_manual(values = c("#59a14f", "#e15759", "#808080")) + 
   facet_wrap(~ toupper(rowname)) +
-  labs(title = "Posición de Senadores frente al #AbortoLegalYa por fuerza política", 
+  labs(title = "Senadores frente al #AbortoLegalYa",
+       subtitle = "(7 de junio)",
        x="",
        y="", 
        fill = "Posición de senadores", 
        caption = "@TuQmano con datos de @ecofeminita") +
-  theme_fivethirtyeight()
+  theme_fivethirtyeight() +
+  theme(axis.ticks.x = element_blank(),
+        axis.text.x = element_blank()) + 
+  ggsave("posSenPart.png", last_plot(), path = plots, width = 150, height = 200, units = "mm")
+
 
 
 detach(partido.sen)
-
-
-# FACET GRID DOS DIMENSIONES (POSICION  & PARTIDO POLITICO)
-attach(partido.sen)
-ggplot(partido.sen) +
-  geom_col(aes("", votos, fill = posición))+
-  scale_fill_manual(values = c("#59a14f", "#e15759", "#d9d9d9", "#808080"))+ 
-  ylim(0, 65) + 
-  facet_grid(posición ~ toupper(rowname)) +
-  labs(title = "Posición de Senadores frente al #AbortoLegalYa por fuerza política", 
-       x="",
-       y="", 
-       fill = "Posición", 
-       caption = "@TuQmano con datos de @ecofeminita")+
-  theme_fivethirtyeight()
 
 
 
 #### PLOT 8####
 #### POR PARTIDO Y PROVINCIA
 
-partido.sen.provincia <- read_csv("~/Desktop/Aborto_geofacet/AbortoLegal_ Contando Porotos - Senadores.csv",
-                              na = "NA", trim_ws = FALSE)
+partido.sen.provincia <- read_csv(dataSen, na = "NA", trim_ws = FALSE)
 
 partido.sen.provincia <- select(partido.sen.provincia, c(9,10,19))
 colnames(partido.sen.provincia) <-  c("Fuerza", "Distrito", "Posición")
@@ -446,10 +435,15 @@ ggplot(partido.sen.provincia) +
   scale_fill_manual(values = c("#59a14f", "#e15759", "#4e79a7"))+ 
   facet_geo(~Distrito, grid = argentina_grid2) + 
   coord_flip() +
-  labs(title = "Posición de Senadores frente al #AbortoLegalYa por fuerza política", 
+  labs(title = "Senadores frente al #AbortoLegalYa",
+       subtitle = "(7 de junio)", 
        x="",
        y="", 
        fill = "Posición de senadores", 
-       caption = "@TuQmano con datos de @ecofeminita")
+       caption = "@TuQmano con datos de @ecofeminita") +
+  theme(axis.ticks.x = element_blank(),
+        axis.text.x = element_blank()) + 
+  ggsave("GeoSenPart.png", last_plot(), path = plots, width = 175, height = 200, units = "mm")
+
 
 
