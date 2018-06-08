@@ -8,8 +8,8 @@ El equipo de [@EconomiaFeminita](https://twitter.com/EcoFeminita/) juntó y puso
 
 El [repositorio](https://github.com/TuQmano/geofacet_ARG/tree/master/ARGENTINA/ABORTO) incluye:
 * un script de `R` con el manejo de datos y el código para producir los 6 gráficos. 
-* archivos `.csv` con los datos (uno por cámara legislativa)
-* archivos `.png`con los gráficos. 
+* archivos `.csv` con los datos (uno por cámara legislativa) en la carpeta `data.`
+* archivos `.png`con los gráficos en la carpeta `plots`.  
 
 
 
