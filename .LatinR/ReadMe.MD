@@ -1,6 +1,6 @@
 # [LatinR](http://latin-r.com/) 
 ---
-Este repositorio incluye:
+**Este repositorio incluye**:
 
 1. Un archivo con los datos (LupuXDepto.xlsx) y un script con el código (tucuman_script.R) para transformarlo y generar la trama (TUCGeoFacet.png).
 
@@ -11,7 +11,7 @@ Este repositorio incluye:
 4. Una carpeta con los archivos para LaTeX.
 
 
-This repository includes:
+**This repository includes:**
 
 1. A file with the data ([`LupuXDepto.xlsx`](https://github.com/TuQmano/geofacet_ARG/blob/master/.LatinR/LupuXDepto.xlsx)) and a script with the code ([`tucuman_script.R`](https://github.com/TuQmano/geofacet_ARG/blob/master/.LatinR/tucuman_script.R)) to transform it and generate the plot (`TUCGeoFacet.png`).
 
